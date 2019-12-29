@@ -3,33 +3,26 @@ const XOR = require('../../classes/XOR.js');
 const xor = new XOR();
 const crypto = require('crypto')
 function sha1(data) { return crypto.createHash("sha1").update(data, "binary").digest("hex"); }
-
 module.exports = async (app, req, res) => {
-
   if (!req.body.comment) return res.status(400).send("No comment provided!")
   if (!req.body.username) return res.status(400).send("No username provided!")
   if (!req.body.accountID) return res.status(400).send("No account ID provided!")
   if (!req.body.password) return res.status(400).send("No password provided!")
-
   if (req.body.comment.includes('\n')) return res.status(400).send("Profile posts cannot contain line breaks!")
-  
   let params = {
     gameVersion: app.gameVersion,
     binaryVersion: app.binaryVersion,
     secret: app.secret,
     cType: '1'
   }
-
   params.comment = new Buffer(req.body.comment.slice(0, 190) + (req.body.color ? "☆" : "")).toString('base64').replace(/\//g, '_').replace(/\+/g, "-")
   params.gjp = xor.encrypt(req.body.password, 37526)
   params.accountID = req.body.accountID.toString()
   params.userName = req.body.username
-
   let chk = params.userName + params.comment + "1xPT6iUrtws0J"
   chk = sha1(chk)
   chk = xor.encrypt(chk, 29481)
   params.chk = chk
-
   request.post(app.endpoint + 'uploadGJAccComment20.php', {
     form: params
   }, function (err, resp, body) {
