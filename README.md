@@ -1,5 +1,4 @@
 # GDBrowser
-
 Uh... so I've never actually used GitHub before this. But I'll try to explain everything going on here.
 
 Sorry for my messy code. It's why I was skeptical about making this open source, but you know what, the code runs fine in the end.
@@ -18,7 +17,6 @@ You can also check out `/misc/gdpsConfig.js` to tweak some additional GDPS setti
 GDPS compatibility is still a HUGE work in progress, so pull requests would be greatly appreciated if you manage to make any improvements! 
 
 # Folders
-
 GDBrowser has a lot of folders. I like to keep things neat.
 
 Most folders contain exactly what you'd expect, but here's some in-depth info in case you're in the dark.
@@ -72,7 +70,6 @@ forms.json is a list of the different icon forms, their ingame filenames, and th
 Inevitable misc folder
 
 **For level analysis**
-
 blocks.json - The object IDs in the different 'families' of blocks
 
 colorProperties.json - Color channel cheatsheet
@@ -84,7 +81,6 @@ objectProperties.json - Object property cheatsheet. Low budget version of [AlFas
 objects.json - IDs for portals, orbs, triggers, and misc stuff
 
 **Not for level analysis**
-
 colors.json - The colors for generating icons
 
 credits.json - Credits! (shown on the homepage)
@@ -98,7 +94,5 @@ mapPacks.json - The IDs for the levels in map packs. I can't believe I have to h
 secretStuff.json - GJP goes here, needed for level leaderboards. Not included in the repo for obvious reasons
 
 sizecheck.js - Excecuted on most pages, used for the 'page isn't wide enough' message, back button, and a few other things
-
 ---
-
 happy painting and god bless.
